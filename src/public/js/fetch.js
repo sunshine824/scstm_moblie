@@ -1,5 +1,5 @@
-import {post} from './post'
-import {serveUrl} from './config'
+import { post } from './post'
+import { serveUrl } from './config'
 
 /**
  * 获取logo
@@ -52,10 +52,10 @@ export function getEduType() {
  * @returns {*}
  */
 export function educationlists(page = 1,
-                               clas_h = [],
-                               clas_p = [],
-                               floor = [],
-                               state = '') {
+  clas_h = [],
+  clas_p = [],
+  floor = [],
+  state = '') {
   const result = post('api/educationlists', {
     page: page,
     clas_h: clas_h,
@@ -114,9 +114,9 @@ export function getMkxContentList() {
  * @returns {*}
  */
 export function getFutureList(page = 1,
-                              clas_p = [],
-                              clas_h = [],
-                              clas_c = []) {
+  clas_p = [],
+  clas_h = [],
+  clas_c = []) {
   const result = post('api/futurelists', {
     page: page,
     clas_p: clas_p,
@@ -165,7 +165,7 @@ export function getVisitContent() {
  * @returns {*}
  */
 export function getNewsInfo(page = 1,
-                            type = 1) {
+  type = 1) {
   const result = post('api/informlists', {
     page: page,
     type: type
@@ -201,7 +201,7 @@ export function getTicketHref() {
  * @returns {*}
  */
 export function getPatchList(page = 1,
-                             type = 1) {
+  type = 1) {
   const result = post('api/showlists', {
     page: page,
     type: type
@@ -237,7 +237,7 @@ export function getFlowType() {
  * @returns {*}
  */
 export function getFlowList(page = 1,
-                            clas = 1) {
+  clas = 1) {
   const result = post('api/flowlists', {
     page: page,
     clas: clas
@@ -264,7 +264,7 @@ export function getFlowDetail(id) {
  * @returns {*}
  */
 export function getMovieList(type = 1,
-                             page = 1) {
+  page = 1) {
   const result = post('api/cinemalists', {
     type: type,
     page: page
@@ -300,7 +300,7 @@ export function getFloorType() {
  * @returns {*}
  */
 export function getFloorList(page = 1,
-                             floor_id = 1) {
+  floor_id = 1) {
   const result = post('api/floorlists', {
     page: page,
     floor_id: floor_id
@@ -336,7 +336,7 @@ export function getCollectType() {
  * @returns {*}
  */
 export function getCollectList(page = 1,
-                               clas = 1) {
+  clas = 1) {
   const result = post('api/collectionlists', {
     page: page,
     clas: clas
@@ -364,8 +364,8 @@ export function getCollectDetail(id) {
  * @returns {*}
  */
 export function getCalendarList(page = 1,
-                                type = 1,
-                                time) {
+  type = 1,
+  time) {
   const result = post('api/Calendarlists', {
     page: page,
     type: type,
@@ -382,7 +382,7 @@ export function getCalendarList(page = 1,
  * @constructor
  */
 export function signIn(phone,
-                       password) {
+  password) {
   const result = post('api/login', {
     phone: phone,
     password: password
@@ -397,7 +397,7 @@ export function signIn(phone,
  * @returns {*}
  */
 export function getPhoneCode(code,
-                             phone) {
+  phone) {
   const result = post('api/wer_add', {
     code: code,
     phone: phone
@@ -423,9 +423,9 @@ export function getImgCode(phone) {
  * @returns {*}
  */
 export function signUp(phone_code,
-                       phone,
-                       password,
-                       card) {
+  phone,
+  password,
+  card) {
   const result = post('api/registr', {
     phone_code: phone_code,
     phone: phone,
@@ -461,9 +461,9 @@ export function layout() {
  * @returns {*}
  */
 export function forget(phone_code,
-                       password,
-                       phone,
-                       card) {
+  password,
+  phone,
+  card) {
   const result = post('api/looking', {
     phone_code: phone_code,
     password: password,
@@ -485,11 +485,11 @@ export function forget(phone_code,
  * @returns {*}
  */
 export function editUserInfo(name,
-                             nickname,
-                             email,
-                             school,
-                             born,
-                             card) {
+  nickname,
+  email,
+  school,
+  born,
+  card) {
   const result = post('api/eduser', {
     name: name,
     nickname: nickname,
@@ -508,7 +508,7 @@ export function editUserInfo(name,
  * @returns {*}
  */
 export function editPasswd(password1,
-                           password2) {
+  password2) {
   const result = post('api/editpwd', {
     password1: password1,
     password2: password2
@@ -534,8 +534,8 @@ export function messageCode(phone) {
  * @returns {*}
  */
 export function submitMessage(code,
-                              content,
-                              type_id) {
+  content,
+  type_id) {
   const result = post('api/lang_add', {
     code: code,
     content: content,
@@ -552,8 +552,8 @@ export function submitMessage(code,
  * @returns {*}
  */
 export function messageList(page,
-                            search,
-                            type_id) {
+  search,
+  type_id) {
   const result = post('api/langlists', {
     page: page,
     search: search,
@@ -702,5 +702,14 @@ export function reserCancel(params) {
  */
 export function wxOrderPay(params) {
   const result = post('api/wx_order_pay', params)
+  return result
+}
+
+/**
+ * 删除订单
+ * @param {*} params
+ */
+export function deleteOrder(params) {
+  const result = post('api/reserdete', params)
   return result
 }
