@@ -5,7 +5,7 @@
         <span class="splt"></span>
         活动预约
       </p>
-      <p class="s-tit">除电影预约，预约活动场次前，请先确保已成功预定科技馆门票</p>
+      <p class="s-tit">{{noticeTxt}}</p>
       <no-data title="请先登录"></no-data>
     </div>
 
@@ -14,7 +14,7 @@
         <span class="splt"></span>
         活动预约
       </p>
-      <p class="s-tit">除电影预约，预约活动场次前，请先确保已成功预定科技馆门票</p>
+      <p class="s-tit">{{noticeTxt}}</p>
       <no-data title="暂未开启在线预约"></no-data>
     </div>
 
@@ -23,7 +23,7 @@
         <span class="splt"></span>
         活动预约
       </p>
-      <p class="s-tit">除电影预约，预约活动场次前，请先确保已成功预定科技馆门票</p>
+      <p class="s-tit">{{noticeTxt}}</p>
       <div class="book">
         <div class="item-group">
           <label class="lab">日期选择：</label>
@@ -34,7 +34,7 @@
           <!--style="width: 5rem">-->
           <!--</DatePicker>-->
           <Select size="large" style="width: 5rem" @on-change="handleDate" placeholder="请选择场次日期">
-            <Option v-for="item in dateList" :value="item.value" :key="item.value">{{ item.value }}</Option>
+            <Option v-for="(item,index) in dateList" v-if="index < 7"  :value="item.value" :key="item.value">{{ item.value }}</Option>
           </Select>
         </div>
         <div class="item-group">
@@ -159,6 +159,10 @@ export default {
     },
     typeVal: {
       default: 1
+    },
+    noticeTxt:{
+      default:'除电影预约，预约活动场次前，请先确保已成功预定科技馆门票',
+      type:String
     }
   },
   data() {

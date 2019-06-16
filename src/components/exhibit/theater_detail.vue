@@ -22,7 +22,7 @@
           <p class="intr" v-html="details.introduce"></p>
         </div>
 
-        <order-box :details="details ? details : {}" typeVal="2"></order-box>
+        <order-box :details="details ? details : {}" typeVal="2" :noticeTxt="noticeTxt"></order-box>
 
         <div class="clips">
           <p class="sub-title">
@@ -61,6 +61,7 @@
     },
     data() {
       return {
+        noticeTxt:'1.2米一下儿童不能观看4D，请勿购票；取完预约门票后不能退换4D电影票',
         details: '',
         swiperOption: {
           slidesPerView: 3,
