@@ -5,7 +5,7 @@
         <span class="splt"></span>
         活动预约
       </p>
-      <p class="s-tit">{{noticeTxt}}</p>
+      <p class="s-tit" v-if="islogin" v-html="noticeTxt"></p>
       <no-data title="请先登录"></no-data>
     </div>
 
@@ -14,7 +14,7 @@
         <span class="splt"></span>
         活动预约
       </p>
-      <p class="s-tit">{{noticeTxt}}</p>
+      <p class="s-tit" v-if="islogin" v-html="noticeTxt"></p>
       <no-data title="暂未开启在线预约"></no-data>
     </div>
 
@@ -23,7 +23,7 @@
         <span class="splt"></span>
         活动预约
       </p>
-      <p class="s-tit">{{noticeTxt}}</p>
+      <p class="s-tit" v-if="islogin" v-html="noticeTxt"></p>
       <div class="book">
         <div class="item-group">
           <label class="lab">日期选择：</label>
@@ -235,12 +235,14 @@ export default {
         }
       ],
       isDisable: false,
-      is_wexin: is_wexin()
+      is_wexin: is_wexin(),
+      islogin:false
     };
   },
   created() {
     this._token();
     this.getOrderList();
+    this.islogin = this.$cookie.get("token")
   },
   methods: {
     _token() {
